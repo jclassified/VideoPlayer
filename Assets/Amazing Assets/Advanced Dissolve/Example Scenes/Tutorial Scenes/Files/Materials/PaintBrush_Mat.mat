@@ -518,8 +518,7 @@ Material:
     - _AdvancedDissolveCutoutMap3_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _AdvancedDissolveCutoutMap3_Tiling: {r: 1, g: 1, b: 1, a: 0}
     - _AdvancedDissolveCutoutMap3_Triplanar_Tiling: {r: 1, g: 1, b: 1, a: 1}
-    - _AdvancedDissolveCutoutParametric1Normal: {r: 0.41310218, g: -0.7040947, b: 0.5775787,
-        a: 0}
+    - _AdvancedDissolveCutoutParametric1Normal: {r: 0.41310218, g: -0.7040947, b: 0.5775787, a: 0}
     - _AdvancedDissolveCutoutParametric1Position: {r: -0.2, g: 2.39, b: -2.68, a: 0}
     - _AdvancedDissolveCutoutParametric2Normal: {r: 1, g: 0, b: 0, a: 0}
     - _AdvancedDissolveCutoutParametric2Position: {r: 0, g: 0, b: 0, a: 0}
@@ -552,16 +551,14 @@ Material:
     - _AdvancedDissolveDynamicMask3Position: {r: 0, g: 0, b: 0, a: 0}
     - _AdvancedDissolveDynamicMask4Normal: {r: 1, g: 0, b: 0, a: 0}
     - _AdvancedDissolveDynamicMask4Position: {r: 0, g: 0, b: 0, a: 0}
-    - _AdvancedDissolveDynamicMaskNormal: {r: -0.5575174, g: -0.61124897, b: -0.5617378,
-        a: 0}
+    - _AdvancedDissolveDynamicMaskNormal: {r: -0.5575174, g: -0.61124897, b: -0.5617378, a: 0}
     - _AdvancedDissolveDynamicMaskPosition: {r: 0.43, g: 0.65, b: -1.01, a: 0}
     - _AdvancedDissolveEdgeAdditionalColor: {r: 1, g: 0, b: 0, a: 1}
     - _AdvancedDissolveEdgeAdditionalColorIntensity: {r: 0, g: 0, b: 0, a: 0}
     - _AdvancedDissolveEdgeAdditionalColorMapOffset: {r: 0, g: 0, b: 0, a: 0}
     - _AdvancedDissolveEdgeAdditionalColorMapScroll: {r: 0, g: 0, b: 0, a: 0}
     - _AdvancedDissolveEdgeAdditionalColorMapTiling: {r: 1, g: 1, b: 0, a: 0}
-    - _AdvancedDissolveEdgeBaseColor: {r: 0.8148468, g: 0.21586053, b: 0.015208514,
-        a: 1}
+    - _AdvancedDissolveEdgeBaseColor: {r: 0.8148468, g: 0.21586053, b: 0.015208514, a: 1}
     - _AdvancedDissolveEdgeBaseColorIntensity: {r: 4, g: 53.59815, b: 0, a: 0}
     - _AdvancedDissolveEdgeColor: {r: 0.015224886, g: 0.48570853, b: 0.81761277, a: 1}
     - _AdvancedDissolveEdgeColor2: {r: 1, g: 0, b: 0, a: 1}
@@ -591,6 +588,7 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!114 &8682768489136243231
 MonoBehaviour:
   m_ObjectHideFlags: 11
