@@ -44,6 +44,7 @@ namespace PointCloud.Player
 
         [SerializeField, Range(0f, 100f)] private float pointSize = .001f;
         [SerializeField, Range(0, 5)] private int maxBackUpSize;
+        [SerializeField] private int maxPointCount = 250000;
         private int loadBias;
         private long currentFrame;
         
@@ -54,7 +55,7 @@ namespace PointCloud.Player
         internal void Init(string path)
         {
             Dispose();
-            vfxTexture = new VFXTexture(computeShader,500000);
+            vfxTexture = new VFXTexture(computeShader, maxPointCount);
             Processed_Path = path;
             FullPath = Saver.CreatePath_CloudsBinary(Processed_Path);
             files = Saver.Binary_GetFrames(Processed_Path);
@@ -142,7 +143,7 @@ namespace PointCloud.Player
 
             vfx.Reinit();
             if (vfx.HasFloat("Size")) vfx.SetFloat("Size", pointSize);
-            if (vfx.HasUInt("PointCount")) vfx.SetUInt("PointCount", 300000);
+            if (vfx.HasUInt("PointCount")) vfx.SetUInt("PointCount", maxPointCount);
             if (vfx.HasTexture("Position Map")) vfx.SetTexture("Position Map", tex_Cloud);
             if (vfx.HasTexture("Color Map")) vfx.SetTexture("Color Map", tex_Color);
         }

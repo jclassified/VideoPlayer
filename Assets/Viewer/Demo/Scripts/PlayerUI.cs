@@ -1,4 +1,3 @@
-using System;
 using PointCloud.Player;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,22 +5,20 @@ using UnityEngine.UI;
 public class PlayerUI : UIPanel
 {
     [Space, Header("Player fields")]
+
     [SerializeField] private CloudPlayer _player;
 
     [SerializeField] private Toggle tg_PlayState;
     private Image i_PlayState;
     [SerializeField] private Sprite sp_Play;
     [SerializeField] private Sprite sp_Pause;
-
+    
+    [SerializeField] private Toggle tg_Loop;
     [SerializeField] private Slider sl_Timeline;
-
-    private int totalTime;
-    [SerializeField] private Text t_Time;
-
+    
     private void Start()
     {
         base.Start();
-        UpdateVideoData(null, EventArgs.Empty);
     }
 
     private void SetPlayState(object sender, bool isPlaying)
@@ -38,13 +35,7 @@ public class PlayerUI : UIPanel
     }
     private void SetProgress(object sender, float progress)
     {
-        sl_Timeline.SetValueWithoutNotify(progress);
-        //t_Time.text = 
-    }
-
-    private void UpdateVideoData(object sender, EventArgs eventArgs)
-    {
-        totalTime = (int)(_player.framesCount / _player.fps);
+        sl_Timeline.value = progress;
     }
 
     protected override void SetListeners()
@@ -55,25 +46,34 @@ public class PlayerUI : UIPanel
             if (isOn)
             {
                 _player.Play();
+                
             }
             else
             {
                 _player.Pause();
+                i_PlayState.sprite = sp_Play;
             }
             SetPlayState(_player, isOn);
         });
-        sl_Timeline.onValueChanged.AddListener(value =>
+        tg_Loop.onValueChanged.AddListener(isOn =>
         {
-            _player.SetFrame(value);
+            if (isOn)
+            {
+                _player.loopType = CloudPlayer.LoopType.Loop;
+            }
+            else
+            {
+                _player.loopType = CloudPlayer.LoopType.Once;
+            }
         });
         _player.onProgress += SetProgress;
         _player.onPlay += SetPlayState;
-        _player.OnVideoSet += UpdateVideoData;
     }
 
     protected override void RemoveListeners()
     {
         tg_PlayState.onValueChanged.RemoveAllListeners();
+        tg_Loop.onValueChanged.RemoveAllListeners();
         _player.onProgress -= SetProgress;
         _player.onPlay -= SetPlayState;
     }

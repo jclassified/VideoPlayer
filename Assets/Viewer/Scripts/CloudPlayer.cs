@@ -8,7 +8,6 @@ namespace PointCloud.Player
     public class CloudPlayer : MonoBehaviour
     {
         //-----Fields
-
         #region Data types
 
         internal enum InitType
@@ -29,20 +28,18 @@ namespace PointCloud.Player
 
         #region Main fields
 
-        [Header("Run system settings")] [SerializeField]
-        private InitType _initType;
-
+        [Header("Run system settings")] 
+        
+        [SerializeField] private InitType _initType;
         [SerializeField] internal LoopType loopType = default;
 
-        internal PCInfo videoInfo { get; private set; }
+        private PCInfo videoInfo;
         [SerializeField] private string path_Video;
-        internal int fps { get; private set; }
+        private int fps = 30;
         internal long framesCount { get; private set; }
 
         [SerializeField] private AudioSource audio;
         [SerializeField] private ViewerPC viewer;
-
-        internal EventHandler OnVideoSet;
 
         #endregion
 
@@ -64,7 +61,7 @@ namespace PointCloud.Player
         }
 
         internal EventHandler<bool> onPlay;
-
+        
         //Video playing progress in percents
         private float _currentProgress;
         internal float currentProgress
@@ -81,7 +78,7 @@ namespace PointCloud.Player
         }
 
         internal EventHandler<float> onProgress;
-
+        
         //In time
         private float startTime = 0f;
         private float elapsedTime = 0f;
@@ -93,14 +90,74 @@ namespace PointCloud.Player
             get { return _currentFrame; }
             set
             {
-                ChangeFrame(value);
+                SetFrame(value);
                 elapsedTime = _currentFrame / fps;
             }
         }
 
-        #endregion 
+        #endregion
         
         //-----Methods
+        #region Set frame types
+
+        private void SetFrameOnce(float value)
+        {
+            if (value < 0)
+                value = 0;
+            if (value < framesCount)
+            {
+                var last = _currentFrame;
+                _currentFrame = value;
+                LoadFrame(last, value);
+            }
+            else
+                Stop();
+        }
+
+        private void SetFrameLoop(float value)
+        {
+            if (value >= framesCount)
+                value %= framesCount;
+            else if (value < 0)
+                value += framesCount;
+            var last = _currentFrame;
+            _currentFrame = value;
+            LoadFrame(last, value);
+        }
+
+        private void SetFramePingPong(float value)
+        {
+            value = Mathf.PingPong(value, framesCount);
+            var last = _currentFrame;
+            _currentFrame = value;
+            LoadFrame(last, value);
+        }
+
+        private bool SetFrame(float value)
+        {
+            if (_currentFrame != value && framesCount > 0)
+            {
+                switch (loopType)
+                {
+                    case LoopType.Once:
+                        SetFrameOnce(value);
+                        break;
+                    case LoopType.Loop:
+                        SetFrameLoop(value);
+                        break;
+                    case LoopType.PingPong:
+                        SetFramePingPong(value);
+                        break;
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
+        #endregion
+
         #region Main Controls
 
         public void Init(string localPath = null)
@@ -206,73 +263,8 @@ namespace PointCloud.Player
             currentFrame = index;
         }
 
-        public void SetFrame(float progress)
-        {
-            currentFrame = (long)(framesCount * progress);
-        }
-
         #endregion
 
-        #region Change frame types
-
-        private void ChangeFrameOnce(float value)
-        {
-            if (value < 0)
-                value = 0;
-            if (value < framesCount)
-            {
-                var last = _currentFrame;
-                _currentFrame = value;
-                LoadFrame(last, value);
-            }
-            else
-                Stop();
-        }
-
-        private void ChangeFrameLoop(float value)
-        {
-            if (value >= framesCount)
-                value %= framesCount;
-            else if (value < 0)
-                value += framesCount;
-            var last = _currentFrame;
-            _currentFrame = value;
-            LoadFrame(last, value);
-        }
-
-        private void ChangeFramePingPong(float value)
-        {
-            value = Mathf.PingPong(value, framesCount);
-            var last = _currentFrame;
-            _currentFrame = value;
-            LoadFrame(last, value);
-        }
-
-        private bool ChangeFrame(float value)
-        {
-            if (_currentFrame != value && framesCount > 0)
-            {
-                switch (loopType)
-                {
-                    case LoopType.Once:
-                        ChangeFrameOnce(value);
-                        break;
-                    case LoopType.Loop:
-                        ChangeFrameLoop(value);
-                        break;
-                    case LoopType.PingPong:
-                        ChangeFramePingPong(value);
-                        break;
-                }
-
-                return true;
-            }
-
-            return false;
-        }
-
-        #endregion
-        
         #region System
 
         private void Start()
@@ -284,25 +276,18 @@ namespace PointCloud.Player
         {
             videoInfo = Saver.Binary_GetInfo(path_Video);
             framesCount = (long)videoInfo.framesCount;
-            fps = videoInfo.bitRate;
-
-            if (OnVideoSet != null)
-            {
-                OnVideoSet.Invoke(this, EventArgs.Empty);
-            }
         }
 
         private void LoadFrame(double lastFrame, double newFrame)
         {
             long lastF = Convert.ToInt64(lastFrame);
             long newF = Convert.ToInt64(newFrame);
-
+            
             if (newF == 0 && _isPlaying)
             {
                 audio.Stop();
                 audio.Play();
             }
-
             if (lastF != newF)
             {
                 viewer.SetFrame(newF);

@@ -18,9 +18,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: -1551
-    y: -90
-    width: 793
-    height: 1644
+    y: -277
+    width: 780
+    height: 1716
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -46,6 +46,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615523}
   - {fileID: 8926484042661615529}
   - {fileID: 8926484042661615531}
+  - {fileID: 8926484042661615971}
   - {fileID: 8926484042661615981}
   - {fileID: 8926484042661616462}
   - {fileID: 8926484042661616837}
@@ -173,7 +174,21 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1000000
+      m_SerializableObject: 1638400
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Point Count
+    path: Point Count
+    tooltip: 
+    sheetType: m_Uint
+    realType: UInt32
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1659
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -830,7 +845,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615486}
   m_ExposedName: ScanerController
   m_Exposed: 1
-  m_Order: 15
+  m_Order: 16
   m_Category: 
   m_Min:
     m_Type:
@@ -1301,7 +1316,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -1607,7 +1622,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615532}
       inputSlot: {fileID: 8926484042661615562}
-    position: {x: -1365, y: 59}
+    position: {x: -1370, y: -109}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661615532
@@ -1635,7 +1650,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1000000
+      m_SerializableObject: 1638400
     m_Space: 2147483647
   m_Property:
     name: o
@@ -1661,7 +1676,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661615561}
-  m_UIPosition: {x: -1182, y: -90}
+  m_UIPosition: {x: -1195, y: -277}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -1795,6 +1810,78 @@ MonoBehaviour:
   title: 
   m_Owners:
   - {fileID: 8926484042661615560}
+--- !u!114 &8926484042661615971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661615972}
+  m_ExposedName: Point Count
+  m_Exposed: 1
+  m_Order: 6
+  m_Category: 
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_EnumValues: []
+  m_ValueFilter: 0
+  m_Tooltip: 
+  m_Nodes: []
+--- !u!114 &8926484042661615972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c52d920e7fff73b498050a6b3c4404ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661615972}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661615971}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1659
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+  m_Direction: 1
+  m_LinkedSlots: []
 --- !u!114 &8926484042661615981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1818,7 +1905,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615982}
   m_ExposedName: ScanerSwitch
   m_Exposed: 1
-  m_Order: 16
+  m_Order: 17
   m_Category: 
   m_Min:
     m_Type:
@@ -1890,7 +1977,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616463}
   m_ExposedName: GlitchController
   m_Exposed: 1
-  m_Order: 13
+  m_Order: 14
   m_Category: 
   m_Min:
     m_Type:
@@ -1964,7 +2051,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616838}
   m_ExposedName: Resolution
   m_Exposed: 0
-  m_Order: 6
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
@@ -2036,7 +2123,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616840}
   m_ExposedName: Repeat
   m_Exposed: 0
-  m_Order: 7
+  m_Order: 8
   m_Category: 
   m_Min:
     m_Type:
@@ -2108,7 +2195,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617105}
   m_ExposedName: Resolution 1
   m_Exposed: 0
-  m_Order: 9
+  m_Order: 10
   m_Category: 
   m_Min:
     m_Type:
@@ -2180,7 +2267,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617107}
   m_ExposedName: Repeat 1
   m_Exposed: 0
-  m_Order: 10
+  m_Order: 11
   m_Category: 
   m_Min:
     m_Type:
@@ -2252,7 +2339,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617129}
   m_ExposedName: GlitchSwitch
   m_Exposed: 1
-  m_Order: 14
+  m_Order: 15
   m_Category: 
   m_Min:
     m_Type:
@@ -2324,7 +2411,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617135}
   m_ExposedName: MatrixController
   m_Exposed: 1
-  m_Order: 17
+  m_Order: 18
   m_Category: 
   m_Min:
     m_Type:
@@ -2398,7 +2485,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617137}
   m_ExposedName: MatrixSwitch
   m_Exposed: 1
-  m_Order: 18
+  m_Order: 19
   m_Category: 
   m_Min:
     m_Type:
@@ -2470,7 +2557,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617466}
   m_ExposedName: ParticlesController
   m_Exposed: 1
-  m_Order: 19
+  m_Order: 20
   m_Category: 
   m_Min:
     m_Type:
@@ -2544,7 +2631,7 @@ MonoBehaviour:
   - {fileID: 8926484042661617472}
   m_ExposedName: ParticlesSwitch
   m_Exposed: 1
-  m_Order: 20
+  m_Order: 21
   m_Category: 
   m_Min:
     m_Type:
@@ -2678,7 +2765,7 @@ MonoBehaviour:
   - {fileID: 8926484042661618016}
   m_ExposedName: Fader
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 12
   m_Category: 
   m_Min:
     m_Type:
@@ -2752,7 +2839,7 @@ MonoBehaviour:
   - {fileID: 8926484042661620283}
   m_ExposedName: Resolution 2
   m_Exposed: 0
-  m_Order: 21
+  m_Order: 22
   m_Category: 
   m_Min:
     m_Type:
@@ -2824,7 +2911,7 @@ MonoBehaviour:
   - {fileID: 8926484042661620285}
   m_ExposedName: Lines
   m_Exposed: 0
-  m_Order: 8
+  m_Order: 9
   m_Category: 
   m_Min:
     m_Type:
@@ -2896,7 +2983,7 @@ MonoBehaviour:
   - {fileID: 8926484042661620482}
   m_ExposedName: MatrixTheLineSwitch
   m_Exposed: 1
-  m_Order: 23
+  m_Order: 24
   m_Category: 
   m_Min:
     m_Type:
@@ -2968,7 +3055,7 @@ MonoBehaviour:
   - {fileID: 8926484042661620484}
   m_ExposedName: MatrixTheLineController
   m_Exposed: 1
-  m_Order: 22
+  m_Order: 23
   m_Category: 
   m_Min:
     m_Type:
@@ -3042,7 +3129,7 @@ MonoBehaviour:
   - {fileID: 8926484042661620496}
   m_ExposedName: CoinSwitch
   m_Exposed: 1
-  m_Order: 25
+  m_Order: 26
   m_Category: 
   m_Min:
     m_Type:
@@ -3114,7 +3201,7 @@ MonoBehaviour:
   - {fileID: 8926484042661620498}
   m_ExposedName: CoinController
   m_Exposed: 1
-  m_Order: 24
+  m_Order: 25
   m_Category: 
   m_Min:
     m_Type:
@@ -3188,7 +3275,7 @@ MonoBehaviour:
   - {fileID: 8926484042661621010}
   m_ExposedName: HologramSwitch
   m_Exposed: 1
-  m_Order: 27
+  m_Order: 28
   m_Category: 
   m_Min:
     m_Type:
@@ -3260,7 +3347,7 @@ MonoBehaviour:
   - {fileID: 8926484042661621012}
   m_ExposedName: HologramController
   m_Exposed: 1
-  m_Order: 26
+  m_Order: 27
   m_Category: 
   m_Min:
     m_Type:
@@ -3334,7 +3421,7 @@ MonoBehaviour:
   - {fileID: 8926484042661621028}
   m_ExposedName: GradientController
   m_Exposed: 1
-  m_Order: 28
+  m_Order: 29
   m_Category: 
   m_Min:
     m_Type:
@@ -3406,7 +3493,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622274}
   m_ExposedName: RenderTexture
   m_Exposed: 0
-  m_Order: 29
+  m_Order: 30
   m_Category: 
   m_Min:
     m_Type:
@@ -3478,7 +3565,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622327}
   m_ExposedName: HoloMapParticleSize
   m_Exposed: 0
-  m_Order: 30
+  m_Order: 31
   m_Category: 
   m_Min:
     m_Type:
@@ -3550,7 +3637,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622370}
   m_ExposedName: HoloMapParticlesRate
   m_Exposed: 0
-  m_Order: 31
+  m_Order: 32
   m_Category: 
   m_Min:
     m_Type:
@@ -3622,7 +3709,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622428}
   m_ExposedName: HoloMapZScale
   m_Exposed: 0
-  m_Order: 32
+  m_Order: 33
   m_Category: 
   m_Min:
     m_Type:
@@ -3694,7 +3781,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622555}
   m_ExposedName: HoloMapColor
   m_Exposed: 1
-  m_Order: 33
+  m_Order: 34
   m_Category: 
   m_Min:
     m_Type:
@@ -3902,7 +3989,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622563}
   m_ExposedName: EmitterHoloSwitch
   m_Exposed: 1
-  m_Order: 34
+  m_Order: 35
   m_Category: 
   m_Min:
     m_Type:
@@ -3974,7 +4061,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622567}
   m_ExposedName: EmitterHoloController
   m_Exposed: 1
-  m_Order: 35
+  m_Order: 36
   m_Category: 
   m_Min:
     m_Type:
@@ -4048,7 +4135,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622576}
   m_ExposedName: StartCloudSwitch
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 13
   m_Category: 
   m_Min:
     m_Type:
@@ -4128,7 +4215,7 @@ MonoBehaviour:
   - {fileID: 8926484042661622870}
   m_ExposedName: ProjectorLinesRate
   m_Exposed: 0
-  m_Order: 36
+  m_Order: 37
   m_Category: 
   m_Min:
     m_Type:
@@ -4200,7 +4287,7 @@ MonoBehaviour:
   - {fileID: 8926484042661623731}
   m_ExposedName: Initial color cycle
   m_Exposed: 0
-  m_Order: 37
+  m_Order: 38
   m_Category: 
   m_Min:
     m_Type:
@@ -4272,7 +4359,7 @@ MonoBehaviour:
   - {fileID: 8926484042661623839}
   m_ExposedName: FirebaseSwitch
   m_Exposed: 1
-  m_Order: 38
+  m_Order: 39
   m_Category: 
   m_Min:
     m_Type:
@@ -4344,7 +4431,7 @@ MonoBehaviour:
   - {fileID: 8926484042661623869}
   m_ExposedName: FirebaseController
   m_Exposed: 1
-  m_Order: 39
+  m_Order: 40
   m_Category: 
   m_Min:
     m_Type:
@@ -4418,7 +4505,7 @@ MonoBehaviour:
   - {fileID: 8926484042661625205}
   m_ExposedName: HeightReference
   m_Exposed: 0
-  m_Order: 40
+  m_Order: 41
   m_Category: 
   m_Min:
     m_Type:
@@ -4490,7 +4577,7 @@ MonoBehaviour:
   - {fileID: 8926484042661625207}
   m_ExposedName: AABoxControl
   m_Exposed: 0
-  m_Order: 41
+  m_Order: 42
   m_Category: 
   m_Min:
     m_Type:
@@ -4834,7 +4921,7 @@ MonoBehaviour:
   - {fileID: 8926484042661625217}
   m_ExposedName: BlendSpeed
   m_Exposed: 0
-  m_Order: 42
+  m_Order: 43
   m_Category: 
   m_Min:
     m_Type:
@@ -4908,7 +4995,7 @@ MonoBehaviour:
   - {fileID: 8926484042661625219}
   m_ExposedName: RayColor
   m_Exposed: 0
-  m_Order: 43
+  m_Order: 44
   m_Category: 
   m_Min:
     m_Type:
@@ -5219,7 +5306,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"x":0.00009999999747378752,"y":0.00009999999747378752,"z":0.00009999999747378752}'
     m_Space: 2147483647
   m_Property:
     name: valueBias
@@ -5856,7 +5943,7 @@ MonoBehaviour:
   - {fileID: 8926484042661625751}
   m_ExposedName: StickersSwitch
   m_Exposed: 1
-  m_Order: 44
+  m_Order: 45
   m_Category: 
   m_Min:
     m_Type:
@@ -5928,7 +6015,7 @@ MonoBehaviour:
   - {fileID: 8926484042661626141}
   m_ExposedName: StikersController
   m_Exposed: 1
-  m_Order: 45
+  m_Order: 46
   m_Category: 
   m_Min:
     m_Type:
@@ -6002,7 +6089,7 @@ MonoBehaviour:
   - {fileID: 8926484042661626582}
   m_ExposedName: ColorHoloTab
   m_Exposed: 0
-  m_Order: 46
+  m_Order: 47
   m_Category: 
   m_Min:
     m_Type:
@@ -6210,7 +6297,7 @@ MonoBehaviour:
   - {fileID: 8926484042661626590}
   m_ExposedName: HoloTabSwitch
   m_Exposed: 1
-  m_Order: 47
+  m_Order: 48
   m_Category: 
   m_Min:
     m_Type:
@@ -6282,7 +6369,7 @@ MonoBehaviour:
   - {fileID: 8926484042661626598}
   m_ExposedName: HoloTabController
   m_Exposed: 1
-  m_Order: 48
+  m_Order: 49
   m_Category: 
   m_Min:
     m_Type:
@@ -6347,13 +6434,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
-  m_Children:
-  - {fileID: 8926484042661626757}
-  m_UIPosition: {x: -1195, y: 1227}
+  m_Children: []
+  m_UIPosition: {x: -1195, y: 1162}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
-  - {fileID: 8926484042661626729}
+  - {fileID: 8926484042661626760}
   - {fileID: 8926484042661626686}
   m_OutputSlots: []
   m_Label: 
@@ -6481,7 +6567,7 @@ MonoBehaviour:
   m_Direction: 0
   m_LinkedSlots:
   - {fileID: 8926484042661615484}
---- !u!114 &8926484042661626729
+--- !u!114 &8926484042661626760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6499,7 +6585,7 @@ MonoBehaviour:
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661626729}
+  m_MasterSlot: {fileID: 8926484042661626760}
   m_MasterData:
     m_Owner: {fileID: 8926484042661626685}
     m_Value:
@@ -6515,26 +6601,3 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
   m_LinkedSlots: []
---- !u!114 &8926484042661626757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16c6aeaef944094b9a1633041804207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 8926484042661626685}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
-  m_UISuperCollapsed: 0
-  m_InputSlots: []
-  m_OutputSlots: []
-  m_Disabled: 0
-  mode: 0
-  axes: 4
